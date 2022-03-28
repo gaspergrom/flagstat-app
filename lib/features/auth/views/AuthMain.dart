@@ -1,14 +1,14 @@
-import 'package:flagstat_app/features/onboarding/views/OnboardingLogin.dart';
-import 'package:flagstat_app/features/onboarding/views/OnboardingRegister.dart';
-import 'package:flagstat_app/shared/components/FsAppBar.dart';
 import 'package:flagstat_app/shared/components/FsButton.dart';
 import 'package:flagstat_app/shared/components/FsText.dart';
 import 'package:flagstat_app/shared/constants/FsColors.dart';
+import 'package:flagstat_app/shared/constants/FsRoutes.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-class OnboardingMain extends StatelessWidget {
+class AuthMain extends StatelessWidget {
+  const AuthMain({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -46,7 +46,7 @@ class OnboardingMain extends StatelessWidget {
               children: [
                 FsButton(
                     text: 'Get started',
-                    handler: () => Get.to(OnboardingRegister())
+                    handler: () => Get.toNamed(FsRoute.authRegister)
                 ),
                 SizedBox(
                   height: 16,
@@ -54,7 +54,7 @@ class OnboardingMain extends StatelessWidget {
                 FsButton(
                     text: 'I already have an account',
                     type: FsButtonType.secondary,
-                  handler: () => Get.to(OnboardingLogin())
+                  handler: () => Get.toNamed(FsRoute.authLogin)
                 ),
               ],
             )

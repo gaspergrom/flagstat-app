@@ -29,7 +29,7 @@ class FsInput extends StatelessWidget {
           enabledBorder: OutlineInputBorder(
               borderSide: BorderSide(color: FsColors.gray, width: 2.0)),
           labelText: this.label,
-          labelStyle: TextStyle(color: Color.fromRGBO(180, 180, 180, 1)),
+          labelStyle: TextStyle(color: FsColors.grayDark),
           floatingLabelStyle: TextStyle(color: FsColors.primary)),
       cursorColor: FsColors.primary,
     );

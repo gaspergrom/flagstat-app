@@ -1,6 +1,7 @@
-import 'package:flagstat_app/features/onboarding/views/OnboardingMain.dart';
-import 'package:flagstat_app/shared/components/FsAppBar.dart';
-import 'package:flagstat_app/shared/components/FsButton.dart';
+import 'package:flagstat_app/features/auth/views/AuthLogin.dart';
+import 'package:flagstat_app/features/auth/views/AuthMain.dart';
+import 'package:flagstat_app/features/auth/views/AuthRegister.dart';
+import 'package:flagstat_app/shared/constants/FsRoutes.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -29,7 +30,12 @@ class MyApp extends StatelessWidget {
         // is not restarted.
         primaryColor: Color.fromRGBO(0, 105, 56, 1),
       ),
-      home: OnboardingMain(),
+      home: const AuthMain(),
+      getPages: [
+        GetPage(name: FsRoute.authHome, page: () => const AuthMain()),
+        GetPage(name: FsRoute.authLogin, page: () => const AuthLogin()),
+        GetPage(name: FsRoute.authRegister, page: () => const AuthRegister())
+      ],
     );
   }
 }
