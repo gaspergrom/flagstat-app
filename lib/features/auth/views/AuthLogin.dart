@@ -61,7 +61,7 @@ class _AuthLoginState extends State<AuthLogin> {
                       ValidationMessage.required: 'Please enter your password',
                     },
                     onSubmitted: () {
-                      if(form.valid){
+                      if (form.valid) {
                         onSubmit();
                       }
                     },
@@ -72,7 +72,10 @@ class _AuthLoginState extends State<AuthLogin> {
                 children: [
                   ReactiveFormConsumer(
                     builder: (context, form, child) {
-                      return FsButton(text: 'Log in', disabled: form.invalid, handler: () => form.valid ? onSubmit() : null);
+                      return FsButton(
+                          text: 'Log in',
+                          disabled: form.invalid,
+                          handler: () => form.valid ? onSubmit() : null);
                     },
                   ),
                   SizedBox(
@@ -100,7 +103,7 @@ class _AuthLoginState extends State<AuthLogin> {
     );
   }
 
-  onSubmit(){
+  onSubmit() {
     var value = this.form.value;
     print(value);
   }

@@ -1,3 +1,7 @@
+import 'dart:async';
+import 'dart:convert';
+
+import 'package:flagstat_app/shared/api/api.service.dart';
 import 'package:flagstat_app/shared/components/FsAppBar.dart';
 import 'package:flagstat_app/shared/components/FsButton.dart';
 import 'package:flagstat_app/shared/components/FsInput.dart';
@@ -75,7 +79,7 @@ class _AuthRegisterState extends State<AuthRegister> {
                       return FsButton(
                           text: 'Create account',
                           disabled: form.invalid,
-                          handler: () => print(form.value),
+                          handler: () => form.valid ? onSubmit() : null,
                       );
                     },
                   ),
@@ -105,7 +109,11 @@ class _AuthRegisterState extends State<AuthRegister> {
   }
 
   onSubmit(){
-    var value = this.form.value;
-    print(value);
+    dynamic value = this.form.value;
+    apiService.auth.register(
+      value['email'],
+      value['password'],
+    )
+    .then((res) {print(res);});
   }
 }
