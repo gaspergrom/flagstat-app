@@ -11,6 +11,6 @@ class FsRoute {
 
 List<GetPage<dynamic>> Routes = [
   GetPage(name: FsRoute.authHome, page: () => const AuthMain()),
-  GetPage(name: FsRoute.authLogin, page: () => AuthLogin()),
+  GetPage(name: FsRoute.authLogin, page: () => const AuthLogin()),
   GetPage(name: FsRoute.authRegister, page: () => AuthRegister())
 ];

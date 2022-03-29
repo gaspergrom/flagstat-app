@@ -31,11 +31,7 @@ class MyApp extends StatelessWidget {
         primaryColor: Color.fromRGBO(0, 105, 56, 1),
       ),
       home: const AuthMain(),
-      getPages: [
-        GetPage(name: FsRoute.authHome, page: () => const AuthMain()),
-        GetPage(name: FsRoute.authLogin, page: () => const AuthLogin()),
-        GetPage(name: FsRoute.authRegister, page: () => const AuthRegister())
-      ],
+      getPages: Routes,
     );
   }
 }
