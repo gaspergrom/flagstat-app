@@ -7,7 +7,6 @@ import 'package:flagstat_app/shared/components/FsText.dart';
 import 'package:flagstat_app/shared/constants/FsColors.dart';
 import 'package:flagstat_app/shared/constants/FsRoutes.dart';
 import 'package:flagstat_app/shared/services/device.service.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:reactive_forms/reactive_forms.dart';
@@ -37,7 +36,7 @@ class _AuthLoginState extends State<AuthLogin> {
         child: Container(
           padding: EdgeInsets.only(left: 16, right: 16, bottom: 16, top: 16),
           child: ReactiveForm(
-            formGroup: this.form,
+            formGroup: form,
             child: Column(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
@@ -55,7 +54,7 @@ class _AuthLoginState extends State<AuthLogin> {
                         form.control('password').focus();
                       },
                     ),
-                    SizedBox(
+                    const SizedBox(
                       height: 16,
                     ),
                     FsPasswordInput(
@@ -82,16 +81,16 @@ class _AuthLoginState extends State<AuthLogin> {
                             handler: () => form.valid ? onSubmit() : null);
                       },
                     ),
-                    SizedBox(
+                    const SizedBox(
                       height: 24,
                     ),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        FsText('Don\'t have an account? '),
+                        const FsText('Don\'t have an account? '),
                         GestureDetector(
                             onTap: () => Get.offNamed(FsRoute.authRegister),
-                            child: FsText(
+                            child: const FsText(
                               'Create one',
                               weight: FontWeight.w500,
                               color: FsColors.primary,
@@ -115,6 +114,9 @@ class _AuthLoginState extends State<AuthLogin> {
       email: value['email'],
       password: value['password'],
       device: deviceData,
-    );
+    ).then(() {
+      //TODO: redirect
+      print('loggedin');
+    });
   }
 }

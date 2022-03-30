@@ -7,6 +7,17 @@ class AuthController extends GetxController {
 
   AuthProvider authProvider = Get.put(AuthProvider());
 
+  register({
+    required String email,
+    required String password,
+    required dynamic device,
+    required bool terms,
+    bool newsletter = false,
+  }) {
+    return authProvider
+        .register(email: email, password: password, device: device, terms: terms, newsletter: newsletter);
+  }
+
   login({
     required String email,
     required String password,
@@ -15,7 +26,6 @@ class AuthController extends GetxController {
     return authProvider
         .login(email: email, password: password, device: device)
         .then((res) {
-      print(res);
       user.value = UserModel(email: res['email'], id: res['_id']);
     });
   }

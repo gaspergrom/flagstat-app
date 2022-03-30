@@ -27,4 +27,19 @@ class FsColors {
       900: Color(0xFF006938),
     },
   );
+  static const grayLightSwatch = MaterialColor(
+    0xFFE5E5E5,
+    {
+      50: Color(0xFFE5E5E5),
+      100: Color(0xFFE5E5E5),
+      200: Color(0xFFE5E5E5),
+      300: Color(0xFFE5E5E5),
+      400: Color(0xFFE5E5E5),
+      500: Color(0xFFE5E5E5),
+      600: Color(0xFFE5E5E5),
+      700: Color(0xFFE5E5E5),
+      800: Color(0xFFE5E5E5),
+      900: Color(0xFFE5E5E5),
+    },
+  );
 }

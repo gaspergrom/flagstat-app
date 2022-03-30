@@ -13,52 +13,54 @@ class AuthMain extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: FsColors.white,
-      body: Container(
-        padding: EdgeInsets.only(left: 16, right: 16, bottom: 24),
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.end,
-          children: [
-            Expanded(
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
+      body: SafeArea(
+        child: Container(
+          padding: EdgeInsets.only(left: 16, right: 16, bottom: 24),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.end,
+            children: [
+              Expanded(
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Image.asset(
+                          'assets/images/flagstat_logo.png',
+                          width: 204,
+                        ),
+                      ],
+                    ),
+                    SizedBox(
+                      height: 24,
+                    ),
+                    Container(
+                      width: 295,
+                      child: FsText('Tracking statistics of players and different teams in flag football',
+                        textAlign: TextAlign.center,),
+                    )
+                  ],
+                ),
+              ),
+              Column(
                 children: [
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Image.asset(
-                        'assets/images/flagstat_logo.png',
-                        width: 204,
-                      ),
-                    ],
+                  FsButton(
+                      text: 'Get started',
+                      handler: () => Get.toNamed(FsRoute.authRegister)
                   ),
                   SizedBox(
-                    height: 24,
+                    height: 16,
                   ),
-                  Container(
-                    width: 295,
-                    child: FsText('Tracking statistics of players and different teams in flag football',
-                      textAlign: TextAlign.center,),
-                  )
+                  FsButton(
+                      text: 'I already have an account',
+                      type: FsButtonType.secondary,
+                    handler: () => Get.toNamed(FsRoute.authLogin)
+                  ),
                 ],
-              ),
-            ),
-            Column(
-              children: [
-                FsButton(
-                    text: 'Get started',
-                    handler: () => Get.toNamed(FsRoute.authRegister)
-                ),
-                SizedBox(
-                  height: 16,
-                ),
-                FsButton(
-                    text: 'I already have an account',
-                    type: FsButtonType.secondary,
-                  handler: () => Get.toNamed(FsRoute.authLogin)
-                ),
-              ],
-            )
-          ],
+              )
+            ],
+          ),
         ),
       ),
     );

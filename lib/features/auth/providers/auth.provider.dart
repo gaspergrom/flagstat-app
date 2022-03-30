@@ -17,6 +17,7 @@ class AuthProvider extends ApiService {
     }).then((Response res) {
       if (res.hasError) {
         handleError(res);
+        return Future.error(res);
       }
       return res.body;
     });
@@ -36,6 +37,7 @@ class AuthProvider extends ApiService {
         handleError(res);
         return Future.error(res);
       }
+      setToken(res.body['authentication']['token']);
       return res.body;
     });
   }

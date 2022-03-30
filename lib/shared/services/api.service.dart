@@ -1,3 +1,5 @@
+import 'package:flagstat_app/shared/constants/FsRoutes.dart';
+import 'package:flagstat_app/shared/constants/FsStorage.dart';
 import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
 
@@ -9,11 +11,12 @@ class ApiService extends GetConnect {
   final url = "http://flagstat-api-dev.herokuapp.com/v1";
   var token;
 
-  GetStorage box = GetStorage();
+  GetStorage storage = GetStorage();
 
   @override
   void onInit() {
     httpClient.baseUrl = url;
+    token = storage.read(FsStorage.token);
 
     httpClient.defaultContentType = "application/json";
     httpClient.timeout = const Duration(seconds: 8);
@@ -24,7 +27,12 @@ class ApiService extends GetConnect {
     });
 
     httpClient.addAuthenticator<dynamic>((request) {
-      print('logout');
+      var t = storage.read(FsStorage.token);
+      if(t != null){
+        token = t;
+      } else {
+        Get.offNamed(FsRoute.authHome);
+      }
       return request;
     });
 
@@ -35,7 +43,11 @@ class ApiService extends GetConnect {
 
   setToken(String? token) {
     this.token = token;
-    // TODO: localstorage
+    if(token != null){
+      storage.write(FsStorage.token, token);
+    } else {
+      storage.remove(FsStorage.token);
+    }
   }
 
   handleError(Response error) {
