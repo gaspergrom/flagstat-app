@@ -1,7 +1,4 @@
-import 'dart:async';
-import 'dart:convert';
-
-import 'package:flagstat_app/shared/api/api.service.dart';
+import 'package:flagstat_app/shared/services/api.service.dart';
 import 'package:flagstat_app/shared/components/FsAppBar.dart';
 import 'package:flagstat_app/shared/components/FsButton.dart';
 import 'package:flagstat_app/shared/components/FsInput.dart';
@@ -9,6 +6,7 @@ import 'package:flagstat_app/shared/components/FsPasswordInput.dart';
 import 'package:flagstat_app/shared/components/FsText.dart';
 import 'package:flagstat_app/shared/constants/FsColors.dart';
 import 'package:flagstat_app/shared/constants/FsRoutes.dart';
+import 'package:flagstat_app/shared/services/device.service.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -65,7 +63,7 @@ class _AuthRegisterState extends State<AuthRegister> {
                       ValidationMessage.required: 'Please enter your password',
                     },
                     onSubmitted: () {
-                      if(form.valid){
+                      if (form.valid) {
                         onSubmit();
                       }
                     },
@@ -77,9 +75,9 @@ class _AuthRegisterState extends State<AuthRegister> {
                   ReactiveFormConsumer(
                     builder: (context, form, child) {
                       return FsButton(
-                          text: 'Create account',
-                          disabled: form.invalid,
-                          handler: () => form.valid ? onSubmit() : null,
+                        text: 'Create account',
+                        disabled: form.invalid,
+                        handler: () => form.valid ? onSubmit() : null,
                       );
                     },
                   ),
@@ -108,12 +106,17 @@ class _AuthRegisterState extends State<AuthRegister> {
     );
   }
 
-  onSubmit(){
+  onSubmit() async {
     dynamic value = this.form.value;
-    apiService.auth.register(
-      value['email'],
-      value['password'],
-    )
-    .then((res) {print(res);});
+    var deviceData = await deviceService.getDeviceInfo();
+
+    // apiService.auth.register(
+    //     email: value['email'],
+    //     password: value['password'],
+    //     device: deviceData,
+    //     terms: true,
+    // ).then((res) {
+    //   print(res);
+    // });
   }
 }

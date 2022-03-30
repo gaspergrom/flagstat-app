@@ -24,24 +24,25 @@ class FsInput extends StatelessWidget {
   Widget build(BuildContext context) {
     final form = ReactiveForm.of(context);
     return ReactiveTextField(
-      onSubmitted: onSubmitted,
+        onSubmitted: onSubmitted,
+        autocorrect: false,
         formControlName: formControlName,
         validationMessages: validationMessages,
         keyboardType: TextInputType.emailAddress,
         decoration: InputDecoration(
-            contentPadding: EdgeInsets.fromLTRB(16, 20, 16, 20),
-            border: OutlineInputBorder(
-              borderSide: BorderSide(color: FsColors.gray, width: 2.0),
-            ),
-            focusedBorder: OutlineInputBorder(
-                borderSide: BorderSide(color: FsColors.primary, width: 2.0)),
-            enabledBorder: OutlineInputBorder(
-                borderSide: BorderSide(color: FsColors.gray, width: 2.0)),
-            labelText: label,
-            labelStyle: TextStyle(color: FsColors.grayDark),
-            floatingLabelStyle: TextStyle(color: form?.findControl(formControlName)?.invalid == true && form?.findControl(formControlName)?.touched == true ? FsColors.error : FsColors.primary)),
+          contentPadding: EdgeInsets.fromLTRB(16, 20, 16, 20),
+          border: OutlineInputBorder(
+            borderSide: BorderSide(color: FsColors.gray, width: 2.0),
+          ),
+          focusedBorder: OutlineInputBorder(
+              borderSide: BorderSide(color: FsColors.primary, width: 2.0)),
+          enabledBorder: OutlineInputBorder(
+              borderSide: BorderSide(color: FsColors.gray, width: 2.0)),
+          errorBorder: OutlineInputBorder(
+              borderSide: BorderSide(color: FsColors.error, width: 2.0)),
+          labelText: label,
+        ),
         cursorColor: FsColors.primary,
-        showErrors: (control) => control.invalid && control.touched && control.dirty
-    );
+        showErrors: (control) => control.invalid && control.touched);
   }
 }

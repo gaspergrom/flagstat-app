@@ -1,10 +1,9 @@
-import 'dart:io';
-
 import 'package:flagstat_app/shared/constants/FsColors.dart';
 import 'package:flagstat_app/shared/constants/FsFonts.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:get/get.dart';
 
 enum FsButtonType {
   primary,
@@ -30,7 +29,7 @@ class FsButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    if(Platform.isIOS) {
+    if(GetPlatform.isIOS) {
       return Container(
         decoration: BoxDecoration(
             border: Border.all(
