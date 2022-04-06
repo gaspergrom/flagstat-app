@@ -34,7 +34,7 @@ class DeviceService {
         }
       };
     }
-    else {
+    else if(GetPlatform.isAndroid) {
       AndroidDeviceInfo data = await deviceInfo.androidInfo;
       return {
         'about': {
@@ -59,6 +59,7 @@ class DeviceService {
         }
       };
     }
+    return {};
   }
 }
 

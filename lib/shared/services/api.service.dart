@@ -52,11 +52,12 @@ class ApiService extends GetConnect {
 
   handleError(Response error) {
     var e = error.body;
-    if (e['message'] != null) {
+    if (e != null && e['message'] != null) {
       Get.snackbar(e['error'] ?? 'Erorr', e['message'],
           snackPosition: SnackPosition.BOTTOM,
           animationDuration: Duration(milliseconds: 300));
     }
+
     Get.snackbar('Erorr',
         'There was an error. Please contact support at support@flagstat.app',
         snackPosition: SnackPosition.BOTTOM,

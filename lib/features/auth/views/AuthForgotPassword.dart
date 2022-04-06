@@ -2,30 +2,24 @@ import 'package:flagstat_app/features/auth/controllers/auth.controller.dart';
 import 'package:flagstat_app/shared/components/FsAppBar.dart';
 import 'package:flagstat_app/shared/components/FsButton.dart';
 import 'package:flagstat_app/shared/components/FsInput.dart';
-import 'package:flagstat_app/shared/components/FsPasswordInput.dart';
 import 'package:flagstat_app/shared/components/FsText.dart';
 import 'package:flagstat_app/shared/constants/FsColors.dart';
 import 'package:flagstat_app/shared/constants/FsRoutes.dart';
-import 'package:flagstat_app/shared/constants/FsValidators.dart';
-import 'package:flagstat_app/shared/services/device.service.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:reactive_forms/reactive_forms.dart';
 
-class AuthLogin extends StatefulWidget {
-  const AuthLogin({Key? key}) : super(key: key);
+class AuthFogotPassword extends StatefulWidget {
+  const AuthFogotPassword({Key? key}) : super(key: key);
 
   @override
-  State<AuthLogin> createState() => _AuthLoginState();
+  State<AuthFogotPassword> createState() => _AuthForgotPasswordState();
 }
 
-class _AuthLoginState extends State<AuthLogin> {
-
+class _AuthForgotPasswordState extends State<AuthFogotPassword> {
   final form = FormGroup({
     'email': FormControl<String>(
         value: '', validators: [Validators.required, Validators.email]),
-    'password':
-        FormControl<String>(value: '', validators: [Validators.required]),
   });
 
   AuthController authController = Get.find<AuthController>();
@@ -34,19 +28,23 @@ class _AuthLoginState extends State<AuthLogin> {
     return GestureDetector(
       onTap: () => FocusManager.instance.primaryFocus?.unfocus(),
       child: Scaffold(
-        appBar: FsAppBar(title: 'Log in'),
+        appBar: FsAppBar(title: 'Update password'),
         backgroundColor: FsColors.white,
         body: SafeArea(
           child: Container(
-            padding: EdgeInsets.only(left: 16, right: 16, bottom: 24, top: 16),
+            padding: const EdgeInsets.only(left: 16, right: 16, bottom: 24, top: 16),
             child: ReactiveForm(
               formGroup: form,
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   Column(
-                    crossAxisAlignment: CrossAxisAlignment.end,
+                    crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
+                      const FsText('Forgot password?', size: FsTextSize.size24, weight: FontWeight.bold,),
+                      const SizedBox(height: 16,),
+                      const FsText('Enter the email address you signed up with to receive a link to reset your password.', size: FsTextSize.size16),
+                      const SizedBox(height: 40,),
                       FsInput(
                         label: 'Email',
                         type: TextInputType.emailAddress,
@@ -59,26 +57,6 @@ class _AuthLoginState extends State<AuthLogin> {
                           form.control('password').focus();
                         },
                       ),
-                      const SizedBox(
-                        height: 16,
-                      ),
-                      FsPasswordInput(
-                        label: 'Password',
-                        formControlName: 'password',
-                        validationMessages: (control) => {
-                          ValidationMessage.required: 'Please enter your password',
-                        },
-                        onSubmitted: () {
-                          if (form.valid) {
-                            onSubmit();
-                          }
-                        },
-                      ),
-                      const SizedBox(height: 24,),
-                      GestureDetector(
-                        onTap: () => Get.toNamed(FsRoute.authForgotPassword),
-                        child: const FsText('Forgot password?', size: FsTextSize.size12, weight: FontWeight.w500, textAlign: TextAlign.right, color: FsColors.primary,),
-                      )
                     ],
                   ),
                   Column(
@@ -86,7 +64,7 @@ class _AuthLoginState extends State<AuthLogin> {
                       ReactiveFormConsumer(
                         builder: (context, form, child) {
                           return FsButton(
-                              text: 'Log in',
+                              text: 'Send email',
                               disabled: form.invalid,
                               handler: () => form.valid ? onSubmit() : null);
                         },
@@ -97,11 +75,11 @@ class _AuthLoginState extends State<AuthLogin> {
                       Row(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
-                          const FsText('Don\'t have an account? '),
+                          const FsText('Did you remember your password? '),
                           GestureDetector(
-                              onTap: () => Get.offNamed(FsRoute.authRegister),
+                              onTap: () => Get.offNamed(FsRoute.authLogin),
                               child: const FsText(
-                                'Create one',
+                                'Log in',
                                 weight: FontWeight.w500,
                                 color: FsColors.primary,
                               )),
@@ -120,14 +98,10 @@ class _AuthLoginState extends State<AuthLogin> {
 
   onSubmit() async {
     dynamic value = form.value;
-    var deviceData = await deviceService.getDeviceInfo();
-    authController.login(
+    authController.passwordReset(
       email: value['email'],
-      password: value['password'],
-      device: deviceData,
     ).then(() {
-      //TODO: redirect
-      print('loggedin');
+      Get.toNamed(FsRoute.authForgotPasswordSuccess);
     });
   }
 }

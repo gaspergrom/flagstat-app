@@ -41,4 +41,33 @@ class AuthProvider extends ApiService {
       return res.body;
     });
   }
+
+  Future passwordReset({
+    required String email,
+  }) {
+    return post('/passwordReset', {
+      'email': email,
+    }).then((Response res) {
+      if (res.hasError) {
+        handleError(res);
+        return Future.error(res);
+      }
+      return res.body;
+    });
+  }
+
+  Future passwordResetToken({
+    required String token,
+    required String password,
+  }) {
+    return post('/passwordReset/$token', {
+      'password': password,
+    }).then((Response res) {
+      if (res.hasError) {
+        handleError(res);
+        return Future.error(res);
+      }
+      return res.body;
+    });
+  }
 }

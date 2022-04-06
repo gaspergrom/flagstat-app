@@ -1,15 +1,11 @@
-import 'dart:io';
-
 import 'package:flagstat_app/shared/components/FsText.dart';
 import 'package:flagstat_app/shared/constants/FsColors.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
-import 'package:flutter/widgets.dart';
 import 'package:reactive_forms/reactive_forms.dart';
 
 class FsPasswordInput extends StatefulWidget {
   final String label;
+  final String? helper;
   final String formControlName;
   final Map<String, String> Function(FormControl<dynamic>)? validationMessages;
   final Function()? onSubmitted;
@@ -19,6 +15,7 @@ class FsPasswordInput extends StatefulWidget {
     this.validationMessages,
     this.onSubmitted,
     this.label = '',
+    this.helper,
   });
 
   @override
@@ -31,6 +28,7 @@ class _FsPasswordInputState extends State<FsPasswordInput> {
   @override
   void initState() {
     _passwordVisible = false;
+    super.initState();
   }
 
   @override
@@ -43,17 +41,21 @@ class _FsPasswordInputState extends State<FsPasswordInput> {
         keyboardType: TextInputType.visiblePassword,
         obscureText: !_passwordVisible,
         decoration: InputDecoration(
-          contentPadding: EdgeInsets.fromLTRB(16, 20, 16, 20),
-          border: OutlineInputBorder(
+          contentPadding: const EdgeInsets.fromLTRB(16, 20, 16, 20),
+          border: const OutlineInputBorder(
             borderSide: BorderSide(color: FsColors.gray, width: 2.0),
           ),
-          focusedBorder: OutlineInputBorder(
+          focusedBorder: const OutlineInputBorder(
               borderSide: BorderSide(color: FsColors.primary, width: 2.0)),
-          enabledBorder: OutlineInputBorder(
+          enabledBorder: const OutlineInputBorder(
               borderSide: BorderSide(color: FsColors.gray, width: 2.0)),
-          errorBorder: OutlineInputBorder(
+          errorBorder: const OutlineInputBorder(
               borderSide: BorderSide(color: FsColors.error, width: 2.0)),
-          labelText: this.widget.label,
+          labelText: widget.label,
+          helperText: widget.helper,
+          helperStyle: const TextStyle(
+            color: FsColors.black,
+          ),
           suffixIcon: GestureDetector(
             onTap: () => {
               setState(() {
@@ -61,7 +63,7 @@ class _FsPasswordInputState extends State<FsPasswordInput> {
               })
             },
             child: Container(
-              padding: EdgeInsets.fromLTRB(8, 14, 16, 16),
+              padding: const EdgeInsets.fromLTRB(8, 14, 16, 16),
               child: FsText(
                 _passwordVisible ? 'Hide' : 'Show',
                 weight: FontWeight.w500,

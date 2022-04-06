@@ -15,7 +15,8 @@ class AuthController extends GetxController {
     bool newsletter = false,
   }) {
     return authProvider
-        .register(email: email, password: password, device: device, terms: terms, newsletter: newsletter);
+        .register(email: email, password: password, device: device, terms: terms, newsletter: newsletter)
+        .then((res) { user.value.email = res['email']; });
   }
 
   login({
@@ -28,5 +29,20 @@ class AuthController extends GetxController {
         .then((res) {
       user.value = UserModel(email: res['email'], id: res['_id']);
     });
+  }
+
+  passwordReset({
+    required String email,
+  }) {
+    return authProvider
+        .passwordReset(email: email);
+  }
+
+  passwordResetToken({
+    required String token,
+    required String password,
+  }) {
+    return authProvider
+        .passwordResetToken(token: token, password: password);
   }
 }

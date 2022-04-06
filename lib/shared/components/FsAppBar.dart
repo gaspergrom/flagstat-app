@@ -10,6 +10,7 @@ import 'package:get/get.dart';
 
 FsAppBar({required title, hideBackButton = false}) {
   return AppBar(
+    centerTitle: true,
     leading: !hideBackButton ? GestureDetector(
       child: Icon(
         FsIcons.back_arrow,

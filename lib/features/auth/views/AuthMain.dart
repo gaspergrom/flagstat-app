@@ -2,7 +2,6 @@ import 'package:flagstat_app/shared/components/FsButton.dart';
 import 'package:flagstat_app/shared/components/FsText.dart';
 import 'package:flagstat_app/shared/constants/FsColors.dart';
 import 'package:flagstat_app/shared/constants/FsRoutes.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -32,10 +31,10 @@ class AuthMain extends StatelessWidget {
                         ),
                       ],
                     ),
-                    SizedBox(
+                    const SizedBox(
                       height: 24,
                     ),
-                    Container(
+                    const SizedBox(
                       width: 295,
                       child: FsText('Tracking statistics of players and different teams in flag football',
                         textAlign: TextAlign.center,),
@@ -49,7 +48,7 @@ class AuthMain extends StatelessWidget {
                       text: 'Get started',
                       handler: () => Get.toNamed(FsRoute.authRegister)
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 16,
                   ),
                   FsButton(
