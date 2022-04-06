@@ -13,24 +13,19 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:reactive_forms/reactive_forms.dart';
 
-class AuthRegister extends StatefulWidget {
-  const AuthRegister({Key? key}) : super(key: key);
+class AuthRegister extends StatelessWidget {
+  AuthRegister({Key? key}) : super(key: key);
 
-  @override
-  State<AuthRegister> createState() => _AuthRegisterState();
-}
+  final AuthController authController = Get.find<AuthController>();
 
-class _AuthRegisterState extends State<AuthRegister> {
   final form = FormGroup({
     'email': FormControl<String>(
         value: '', validators: [Validators.required, Validators.email]),
     'password':
-        FormControl<String>(value: '', validators: [Validators.required, Validators.minLength(8), FsValidators.password]),
+    FormControl<String>(value: '', validators: [Validators.required, Validators.minLength(8), FsValidators.password]),
     'terms': FormControl<bool>(value: false),
     'newsletter': FormControl<bool>(value: false),
   });
-
-  AuthController authController = Get.find<AuthController>();
 
   @override
   Widget build(BuildContext context) {
@@ -151,7 +146,7 @@ class _AuthRegisterState extends State<AuthRegister> {
       terms: value['terms'],
       newsletter: value['newsletter'],
     )
-    .then((res) {
+        .then((res) {
       form.reset();
       Get.toNamed(FsRoute.authRegisterSuccess);
       return res;

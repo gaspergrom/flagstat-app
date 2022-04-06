@@ -6,29 +6,23 @@ import 'package:flagstat_app/shared/components/FsPasswordInput.dart';
 import 'package:flagstat_app/shared/components/FsText.dart';
 import 'package:flagstat_app/shared/constants/FsColors.dart';
 import 'package:flagstat_app/shared/constants/FsRoutes.dart';
-import 'package:flagstat_app/shared/constants/FsValidators.dart';
 import 'package:flagstat_app/shared/services/device.service.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:reactive_forms/reactive_forms.dart';
 
-class AuthLogin extends StatefulWidget {
-  const AuthLogin({Key? key}) : super(key: key);
+class AuthLogin extends StatelessWidget {
+  AuthLogin({Key? key}) : super(key: key);
 
-  @override
-  State<AuthLogin> createState() => _AuthLoginState();
-}
-
-class _AuthLoginState extends State<AuthLogin> {
+  final AuthController authController = Get.find<AuthController>();
 
   final form = FormGroup({
     'email': FormControl<String>(
         value: '', validators: [Validators.required, Validators.email]),
     'password':
-        FormControl<String>(value: '', validators: [Validators.required]),
+    FormControl<String>(value: '', validators: [Validators.required]),
   });
 
-  AuthController authController = Get.find<AuthController>();
   @override
   Widget build(BuildContext context) {
     return GestureDetector(

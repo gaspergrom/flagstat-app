@@ -7,15 +7,10 @@ import 'package:flagstat_app/shared/services/email.service.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-class AuthForgotPasswordSuccess extends StatefulWidget {
-  const AuthForgotPasswordSuccess({Key? key}) : super(key: key);
+class AuthForgotPasswordSuccess extends StatelessWidget {
+  AuthForgotPasswordSuccess({Key? key}) : super(key: key);
 
-  @override
-  State<AuthForgotPasswordSuccess> createState() => _AuthForgotPasswordSuccessState();
-}
-
-class _AuthForgotPasswordSuccessState extends State<AuthForgotPasswordSuccess> {
-  AuthController authController = Get.find<AuthController>();
+  final AuthController authController = Get.find<AuthController>();
 
   @override
   Widget build(BuildContext context) {

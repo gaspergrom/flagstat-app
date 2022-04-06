@@ -9,20 +9,16 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:reactive_forms/reactive_forms.dart';
 
-class AuthFogotPassword extends StatefulWidget {
-  const AuthFogotPassword({Key? key}) : super(key: key);
+class AuthFogotPassword extends StatelessWidget {
+  AuthFogotPassword({Key? key}) : super(key: key);
 
-  @override
-  State<AuthFogotPassword> createState() => _AuthForgotPasswordState();
-}
+  final AuthController authController = Get.find<AuthController>();
 
-class _AuthForgotPasswordState extends State<AuthFogotPassword> {
   final form = FormGroup({
     'email': FormControl<String>(
         value: '', validators: [Validators.required, Validators.email]),
   });
 
-  AuthController authController = Get.find<AuthController>();
   @override
   Widget build(BuildContext context) {
     return GestureDetector(

@@ -17,12 +17,12 @@ class FsRoute {
   static const authForgotPasswordReset = '/auth/forgot-password/reset';
 }
 
-List<GetPage<dynamic>> Routes = [
+List<GetPage<dynamic>> routes = [
   GetPage(name: FsRoute.authHome, page: () => const AuthMain(), transition: Transition.rightToLeft, transitionDuration: const Duration(milliseconds: 200)),
-  GetPage(name: FsRoute.authLogin, page: () => const AuthLogin(), transition: Transition.rightToLeft, transitionDuration: const Duration(milliseconds: 200)),
-  GetPage(name: FsRoute.authRegister, page: () => const AuthRegister(), transition: Transition.rightToLeft, transitionDuration: const Duration(milliseconds: 200)),
-  GetPage(name: FsRoute.authRegisterSuccess, page: () => const AuthRegisterSuccess(), transition: Transition.rightToLeft, transitionDuration: const Duration(milliseconds: 200)),
-  GetPage(name: FsRoute.authForgotPassword, page: () => const AuthFogotPassword(), transition: Transition.rightToLeft, transitionDuration: const Duration(milliseconds: 200)),
-  GetPage(name: FsRoute.authForgotPasswordSuccess, page: () => const AuthForgotPasswordSuccess(), transition: Transition.rightToLeft, transitionDuration: const Duration(milliseconds: 200)),
-  GetPage(name: FsRoute.authForgotPasswordReset, page: () => const AuthFogotPasswordReset(), transition: Transition.rightToLeft, transitionDuration: const Duration(milliseconds: 200)),
+  GetPage(name: FsRoute.authLogin, page: () => AuthLogin(), transition: Transition.rightToLeft, transitionDuration: const Duration(milliseconds: 200)),
+  GetPage(name: FsRoute.authRegister, page: () => AuthRegister(), transition: Transition.rightToLeft, transitionDuration: const Duration(milliseconds: 200)),
+  GetPage(name: FsRoute.authRegisterSuccess, page: () => AuthRegisterSuccess(), transition: Transition.rightToLeft, transitionDuration: const Duration(milliseconds: 200)),
+  GetPage(name: FsRoute.authForgotPassword, page: () => AuthFogotPassword(), transition: Transition.rightToLeft, transitionDuration: const Duration(milliseconds: 200)),
+  GetPage(name: FsRoute.authForgotPasswordSuccess, page: () => AuthForgotPasswordSuccess(), transition: Transition.rightToLeft, transitionDuration: const Duration(milliseconds: 200)),
+  GetPage(name: FsRoute.authForgotPasswordReset, page: () => AuthFogotPasswordReset(), transition: Transition.rightToLeft, transitionDuration: const Duration(milliseconds: 200)),
 ];

@@ -7,15 +7,10 @@ import 'package:flagstat_app/shared/services/email.service.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-class AuthRegisterSuccess extends StatefulWidget {
-  const AuthRegisterSuccess({Key? key}) : super(key: key);
+class AuthRegisterSuccess extends StatelessWidget {
+  AuthRegisterSuccess({Key? key}) : super(key: key);
 
-  @override
-  State<AuthRegisterSuccess> createState() => _AuthRegisterSuccessState();
-}
-
-class _AuthRegisterSuccessState extends State<AuthRegisterSuccess> {
-  AuthController authController = Get.find<AuthController>();
+  final AuthController authController = Get.find<AuthController>();
 
   @override
   Widget build(BuildContext context) {
