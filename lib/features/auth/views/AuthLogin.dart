@@ -32,7 +32,7 @@ class AuthLogin extends StatelessWidget {
         backgroundColor: FsColors.white,
         body: SafeArea(
           child: Container(
-            padding: EdgeInsets.only(left: 16, right: 16, bottom: 24, top: 16),
+            padding: const EdgeInsets.only(left: 16, right: 16, bottom: 24, top: 16),
             child: ReactiveForm(
               formGroup: form,
               child: Column(

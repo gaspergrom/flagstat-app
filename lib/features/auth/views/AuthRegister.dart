@@ -77,9 +77,9 @@ class AuthRegister extends StatelessWidget {
                       const SizedBox(
                         height: 36,
                       ),
-                      const FsCheckbox(
+                      FsCheckbox(
                         formControlName: 'newsletter',
-                        child: FsText('I would like to receive news & updates via email', size: FsTextSize.size12,),
+                        child: const FsText('I would like to receive news & updates via email', size: FsTextSize.size12,),
                       ),
                       const SizedBox(
                         height: 16,

@@ -22,7 +22,6 @@ class FsInput extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final form = ReactiveForm.of(context);
     return ReactiveTextField(
         onSubmitted: onSubmitted,
         autocorrect: false,
@@ -30,15 +29,15 @@ class FsInput extends StatelessWidget {
         validationMessages: validationMessages,
         keyboardType: TextInputType.emailAddress,
         decoration: InputDecoration(
-          contentPadding: EdgeInsets.fromLTRB(16, 20, 16, 20),
-          border: OutlineInputBorder(
+          contentPadding: const EdgeInsets.fromLTRB(16, 20, 16, 20),
+          border: const OutlineInputBorder(
             borderSide: BorderSide(color: FsColors.gray, width: 2.0),
           ),
-          focusedBorder: OutlineInputBorder(
+          focusedBorder: const OutlineInputBorder(
               borderSide: BorderSide(color: FsColors.primary, width: 2.0)),
-          enabledBorder: OutlineInputBorder(
+          enabledBorder: const OutlineInputBorder(
               borderSide: BorderSide(color: FsColors.gray, width: 2.0)),
-          errorBorder: OutlineInputBorder(
+          errorBorder: const OutlineInputBorder(
               borderSide: BorderSide(color: FsColors.error, width: 2.0)),
           labelText: label,
         ),

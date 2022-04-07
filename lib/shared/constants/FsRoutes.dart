@@ -5,6 +5,10 @@ import 'package:flagstat_app/features/auth/views/AuthLogin.dart';
 import 'package:flagstat_app/features/auth/views/AuthMain.dart';
 import 'package:flagstat_app/features/auth/views/AuthRegister.dart';
 import 'package:flagstat_app/features/auth/views/AuthRegisterSuccess.dart';
+import 'package:flagstat_app/features/onboarding/views/OnboardingMain.dart';
+import 'package:flagstat_app/features/onboarding/views/manager/OnboardingManagerMain.dart';
+import 'package:flagstat_app/features/onboarding/views/player/OnboardingPlayerMain.dart';
+import 'package:flagstat_app/features/onboarding/views/visitor/OnboardingVisitorMain.dart';
 import 'package:get/get.dart';
 
 class FsRoute {
@@ -15,6 +19,11 @@ class FsRoute {
   static const authForgotPassword = '/auth/forgot-password';
   static const authForgotPasswordSuccess = '/auth/forgot-password/success';
   static const authForgotPasswordReset = '/auth/forgot-password/reset';
+
+  static const onboardingHome = '/onboarding';
+  static const onboardingVisitorHome = '/onboarding/visitor';
+  static const onboardingPlayerHome = '/onboarding/player';
+  static const onboardingManagerHome = '/onboarding/manager';
 }
 
 List<GetPage<dynamic>> routes = [
@@ -25,4 +34,12 @@ List<GetPage<dynamic>> routes = [
   GetPage(name: FsRoute.authForgotPassword, page: () => AuthFogotPassword(), transition: Transition.rightToLeft, transitionDuration: const Duration(milliseconds: 200)),
   GetPage(name: FsRoute.authForgotPasswordSuccess, page: () => AuthForgotPasswordSuccess(), transition: Transition.rightToLeft, transitionDuration: const Duration(milliseconds: 200)),
   GetPage(name: FsRoute.authForgotPasswordReset, page: () => AuthFogotPasswordReset(), transition: Transition.rightToLeft, transitionDuration: const Duration(milliseconds: 200)),
+
+  GetPage(name: FsRoute.onboardingHome, page: () => OnboardingMain(), transition: Transition.rightToLeft, transitionDuration: const Duration(milliseconds: 200)),
+  GetPage(name: FsRoute.onboardingVisitorHome, page: () => OnboardingVisitorMain(), transition: Transition.rightToLeft, transitionDuration: const Duration(milliseconds: 200)),
+  GetPage(name: FsRoute.onboardingPlayerHome, page: () => OnboardingPlayerMain(), transition: Transition.rightToLeft, transitionDuration: const Duration(milliseconds: 200)),
+  GetPage(name: FsRoute.onboardingManagerHome, page: () => OnboardingManagerMain(), transition: Transition.rightToLeft, transitionDuration: const Duration(milliseconds: 200)),
+
+
+
 ];

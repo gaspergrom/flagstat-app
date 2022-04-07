@@ -1,4 +1,4 @@
-import 'package:flagstat_app/features/auth/views/AuthMain.dart';
+import 'package:flagstat_app/features/onboarding/views/OnboardingMain.dart';
 import 'package:flagstat_app/shared/constants/FsColors.dart';
 import 'package:flagstat_app/shared/constants/FsRoutes.dart';
 import 'package:flagstat_app/shared/state/FsBindings.dart';
@@ -8,7 +8,7 @@ import 'package:get_storage/get_storage.dart';
 
 void main() async {
   await GetStorage.init();
-  runApp(const MyApp());
+  runApp(MyApp());
 }
 
 class MyApp extends StatelessWidget {
@@ -17,7 +17,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GetMaterialApp(
-      title: 'Flutter Demo',
+      title: 'FlagStat',
       initialBinding: FsBindings(),
       theme: ThemeData(
         primaryColor: FsColors.primary,
@@ -25,7 +25,7 @@ class MyApp extends StatelessWidget {
         unselectedWidgetColor: FsColors.grayLightSwatch,
         errorColor: FsColors.error,
       ),
-      home: const AuthMain(),
+      home: OnboardingMain(),
       getPages: routes,
     );
   }

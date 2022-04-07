@@ -14,7 +14,7 @@ class AuthMain extends StatelessWidget {
       backgroundColor: FsColors.white,
       body: SafeArea(
         child: Container(
-          padding: EdgeInsets.only(left: 16, right: 16, bottom: 24),
+          padding: const EdgeInsets.only(left: 16, right: 16, bottom: 24),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.end,
             children: [
@@ -46,7 +46,7 @@ class AuthMain extends StatelessWidget {
                 children: [
                   FsButton(
                       text: 'Get started',
-                      handler: () => Get.toNamed(FsRoute.authRegister)
+                      handler: () => Get.toNamed(FsRoute.onboardingHome)
                   ),
                   const SizedBox(
                     height: 16,
