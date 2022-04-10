@@ -27,7 +27,7 @@ class FsInput extends StatelessWidget {
         autocorrect: false,
         formControlName: formControlName,
         validationMessages: validationMessages,
-        keyboardType: TextInputType.emailAddress,
+        keyboardType: type,
         decoration: InputDecoration(
           contentPadding: const EdgeInsets.fromLTRB(16, 20, 16, 20),
           border: const OutlineInputBorder(
