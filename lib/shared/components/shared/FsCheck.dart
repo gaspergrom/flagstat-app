@@ -13,7 +13,9 @@ class FsCheck extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
+    return AnimatedContainer(
+      duration: const Duration(milliseconds: 200),
+      curve: Curves.easeInOut,
       width: 21,
       height: 21,
       decoration: BoxDecoration(

@@ -40,6 +40,7 @@ dependencies:
   get_storage: ^2.0.3
   open_mail_app: ^0.4.5
   flutter_launcher_icons: ^0.9.2
+  flutter_svg: ^1.0.3
 
 dev_dependencies:
   flutter_test:
@@ -79,6 +80,7 @@ flutter:
     - assets/images/flagstat_logo.png
     - assets/images/auth/verify-email.png
     - assets/images/auth/forgot-password.png
+    - assets/images/global/no_results.svg
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.

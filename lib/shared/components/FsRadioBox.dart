@@ -24,7 +24,9 @@ class FsRadioBox<T> extends ReactiveFormField<T, T> {
         onTap: () {
           field.control.enabled ? field.didChange(value) : null;
         },
-        child: Container(
+        child: AnimatedContainer(
+          duration: const Duration(milliseconds: 200),
+          curve: Curves.easeInOut,
           decoration: BoxDecoration(
             border: Border.all(
                 color: field.value == value ? FsColors.primary : FsColors.gray,

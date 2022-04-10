@@ -120,7 +120,7 @@ class AuthLogin extends StatelessWidget {
       password: value['password'],
       device: deviceData,
     ).then(() {
-      //TODO: redirect
+      Get.offAllNamed(FsRoute.onboardingHome);
       print('loggedin');
     });
   }

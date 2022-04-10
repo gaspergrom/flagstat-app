@@ -13,6 +13,7 @@ class AuthProvider extends ApiService {
       'email': email,
       'password': password,
       'device': device,
+      'name': 'Gasper Grom',
       'privacyPolicy': {'terms': terms, 'newsletter': newsletter}
     }).then((Response res) {
       if (res.hasError) {

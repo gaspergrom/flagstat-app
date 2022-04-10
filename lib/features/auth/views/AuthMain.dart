@@ -46,7 +46,7 @@ class AuthMain extends StatelessWidget {
                 children: [
                   FsButton(
                       text: 'Get started',
-                      handler: () => Get.toNamed(FsRoute.onboardingHome)
+                      handler: () => Get.toNamed(FsRoute.authRegister)
                   ),
                   const SizedBox(
                     height: 16,

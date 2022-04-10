@@ -16,7 +16,10 @@ class AuthController extends GetxController {
   }) {
     return authProvider
         .register(email: email, password: password, device: device, terms: terms, newsletter: newsletter)
-        .then((res) { user.value.email = res['email']; });
+        .then((res) {
+          user.value.email = res['email'];
+          return login(email: email, password: password, device: device);
+        });
   }
 
   login({

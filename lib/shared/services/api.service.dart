@@ -31,7 +31,7 @@ class ApiService extends GetConnect {
       if(t != null){
         token = t;
       } else {
-        Get.offNamed(FsRoute.authHome);
+        Get.offAllNamed(FsRoute.authHome);
       }
       return request;
     });
