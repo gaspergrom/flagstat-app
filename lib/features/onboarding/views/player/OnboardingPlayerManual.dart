@@ -2,14 +2,16 @@ import 'package:flagstat_app/shared/components/FsAppBar.dart';
 import 'package:flagstat_app/shared/components/FsButton.dart';
 import 'package:flagstat_app/shared/components/FsCountryPicker.dart';
 import 'package:flagstat_app/shared/components/FsInput.dart';
+import 'package:flagstat_app/shared/components/FsRadioBox.dart';
+import 'package:flagstat_app/shared/components/FsText.dart';
 import 'package:flagstat_app/shared/constants/FsColors.dart';
 import 'package:flagstat_app/shared/constants/FsRoutes.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:reactive_forms/reactive_forms.dart';
 
-class OnboardingManagerMain extends StatelessWidget {
-  OnboardingManagerMain({Key? key}) : super(key: key);
+class OnboardingPlayerManual extends StatelessWidget {
+  OnboardingPlayerManual({Key? key}) : super(key: key);
 
   final form = FormGroup({
     'name': FormControl<String>(value: '', validators: [Validators.required]),
@@ -26,7 +28,7 @@ class OnboardingManagerMain extends StatelessWidget {
         body: SafeArea(
           child: Container(
             padding:
-            const EdgeInsets.only(left: 16, right: 16, bottom: 24, top: 16),
+                const EdgeInsets.only(left: 16, right: 16, bottom: 24, top: 16),
             child: ReactiveForm(
               formGroup: form,
               child: Column(
@@ -55,7 +57,7 @@ class OnboardingManagerMain extends StatelessWidget {
                   ),
                   Column(
                     children: [
-                      FsButton(text: "Continue", handler: () => Get.toNamed(FsRoute.onboardingManagerDetails)),
+                      FsButton(text: "Finish", handler: () => Get.toNamed(FsRoute.onboardingPlayerManualSuccess)),
                       const SizedBox(
                         height: 24,
                       ),

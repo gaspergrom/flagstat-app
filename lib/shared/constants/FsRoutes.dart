@@ -6,8 +6,14 @@ import 'package:flagstat_app/features/auth/views/AuthMain.dart';
 import 'package:flagstat_app/features/auth/views/AuthRegister.dart';
 import 'package:flagstat_app/features/auth/views/AuthRegisterSuccess.dart';
 import 'package:flagstat_app/features/onboarding/views/OnboardingMain.dart';
+import 'package:flagstat_app/features/onboarding/views/manager/OnboardingManagerDetails.dart';
+import 'package:flagstat_app/features/onboarding/views/manager/OnboardingManagerLocation.dart';
 import 'package:flagstat_app/features/onboarding/views/manager/OnboardingManagerMain.dart';
+import 'package:flagstat_app/features/onboarding/views/manager/OnboardingManagerSuccess.dart';
+import 'package:flagstat_app/features/onboarding/views/player/OnboardingPlayerLinkSuccess.dart';
 import 'package:flagstat_app/features/onboarding/views/player/OnboardingPlayerMain.dart';
+import 'package:flagstat_app/features/onboarding/views/player/OnboardingPlayerManual.dart';
+import 'package:flagstat_app/features/onboarding/views/player/OnboardingPlayerManualSuccess.dart';
 import 'package:flagstat_app/features/onboarding/views/visitor/OnboardingVisitorMain.dart';
 import 'package:get/get.dart';
 
@@ -23,7 +29,13 @@ class FsRoute {
   static const onboardingHome = '/onboarding';
   static const onboardingVisitorHome = '/onboarding/visitor';
   static const onboardingPlayerHome = '/onboarding/player';
+  static const onboardingPlayerLinkSuccess = '/onboarding/player/link/success';
+  static const onboardingPlayerManual = '/onboarding/player/manual';
+  static const onboardingPlayerManualSuccess = '/onboarding/player/manual/success';
   static const onboardingManagerHome = '/onboarding/manager';
+  static const onboardingManagerDetails = '/onboarding/manager/details';
+  static const onboardingManagerLocation = '/onboarding/manager/location';
+  static const onboardingManagerSuccess = '/onboarding/manager/success';
 }
 
 List<GetPage<dynamic>> routes = [
@@ -37,8 +49,14 @@ List<GetPage<dynamic>> routes = [
 
   GetPage(name: FsRoute.onboardingHome, page: () => OnboardingMain(), transition: Transition.rightToLeft, transitionDuration: const Duration(milliseconds: 200)),
   GetPage(name: FsRoute.onboardingVisitorHome, page: () => OnboardingVisitorMain(), transition: Transition.rightToLeft, transitionDuration: const Duration(milliseconds: 200)),
-  GetPage(name: FsRoute.onboardingPlayerHome, page: () => OnboardingPlayerMain(), transition: Transition.rightToLeft, transitionDuration: const Duration(milliseconds: 200)),
+  GetPage(name: FsRoute.onboardingPlayerHome, page: () => const OnboardingPlayerMain(), transition: Transition.rightToLeft, transitionDuration: const Duration(milliseconds: 200)),
+  GetPage(name: FsRoute.onboardingPlayerLinkSuccess, page: () => const OnboardingPlayerLinkSuccess(), transition: Transition.rightToLeft, transitionDuration: const Duration(milliseconds: 200)),
+  GetPage(name: FsRoute.onboardingPlayerManual, page: () => OnboardingPlayerManual(), transition: Transition.rightToLeft, transitionDuration: const Duration(milliseconds: 200)),
+  GetPage(name: FsRoute.onboardingPlayerManualSuccess, page: () => const OnboardingPlayerManualSuccess(), transition: Transition.rightToLeft, transitionDuration: const Duration(milliseconds: 200)),
   GetPage(name: FsRoute.onboardingManagerHome, page: () => OnboardingManagerMain(), transition: Transition.rightToLeft, transitionDuration: const Duration(milliseconds: 200)),
+  GetPage(name: FsRoute.onboardingManagerDetails, page: () => OnboardingManagerDetails(), transition: Transition.rightToLeft, transitionDuration: const Duration(milliseconds: 200)),
+  GetPage(name: FsRoute.onboardingManagerLocation, page: () => OnboardingManagerLocation(), transition: Transition.rightToLeft, transitionDuration: const Duration(milliseconds: 200)),
+  GetPage(name: FsRoute.onboardingManagerSuccess, page: () => const OnboardingManagerSuccess(), transition: Transition.rightToLeft, transitionDuration: const Duration(milliseconds: 200)),
 
 
 

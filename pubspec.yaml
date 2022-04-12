@@ -82,6 +82,10 @@ flutter:
     - assets/images/auth/forgot-password.png
     - assets/images/global/no_results.svg
     - assets/images/global/no_avatar.png
+    - assets/images/onboarding/profile-connect.svg
+    - assets/images/onboarding/profile-create.svg
+    - assets/images/onboarding/manager-success.svg
+    - assets/icons/camera.svg
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.

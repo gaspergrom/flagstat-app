@@ -107,7 +107,7 @@ class OnboardingMain extends StatelessWidget {
         Get.toNamed(FsRoute.onboardingManagerHome);
         break;
       default:
-        Get.toNamed(FsRoute.onboardingPlayerHome);
+        Get.toNamed(FsRoute.onboardingManagerHome);
         break;
     }
   }

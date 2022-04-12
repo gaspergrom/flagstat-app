@@ -3,6 +3,7 @@ import 'package:flagstat_app/shared/components/FsButton.dart';
 import 'package:flagstat_app/shared/components/FsSearch.dart';
 import 'package:flagstat_app/shared/components/FsText.dart';
 import 'package:flagstat_app/shared/constants/FsColors.dart';
+import 'package:flagstat_app/shared/constants/FsRoutes.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
@@ -20,7 +21,7 @@ class _OnboardingPlayerMainState extends State<OnboardingPlayerMain> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: FsAppBar(title: 'Link profile', hideBackButton: true),
+      appBar: FsAppBar(title: 'Link profile'),
       backgroundColor: FsColors.white,
       body: SafeArea(
         child: Container(
@@ -54,13 +55,14 @@ class _OnboardingPlayerMainState extends State<OnboardingPlayerMain> {
                 child: Column(
                   children: [
                     FsButton(
-                        text: "Claim your existing profile", handler: () => null),
+                        text: "Claim your existing profile", handler: () => 
+                    Get.toNamed(FsRoute.onboardingPlayerLinkSuccess)),
                     const SizedBox(
                       height: 16,
                     ),
                     FsButton(
                       text: "Manually create your profile",
-                      handler: () => Get.back(),
+                      handler: () => Get.toNamed(FsRoute.onboardingPlayerManual),
                       type: FsButtonType.secondary,
                     ),
                   ],
